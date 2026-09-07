@@ -1,0 +1,232 @@
+.banner {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--color-purple-soft);
+  background: rgba(166, 138, 240, 0.12);
+  border: 1px solid rgba(166, 138, 240, 0.25);
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+}
+
+.heading {
+  font-size: clamp(1.55rem, 4.2vw, 2.15rem);
+  font-weight: 700;
+  line-height: 1.14;
+  color: var(--color-text-primary);
+}
+
+.headingAccent {
+  background: linear-gradient(120deg, var(--color-purple-soft), var(--color-purple));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.description {
+  color: var(--color-text-secondary);
+  font-size: 0.94rem;
+  line-height: 1.55;
+  max-width: 36ch;
+}
+
+.flow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+  margin: 2px 0 4px;
+}
+
+.flowStep {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.flowArrow {
+  color: var(--color-purple-soft);
+}
+
+/* Illustration */
+.illustration {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 150px;
+}
+
+.screen {
+  position: relative;
+  width: 168px;
+  border-radius: var(--radius-md);
+  padding: 14px;
+  background: linear-gradient(160deg, #262b52, #171a30);
+  border: 1px solid var(--color-border-strong);
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform 380ms var(--ease-spring), box-shadow 380ms var(--ease-standard);
+}
+
+.banner:hover .screen {
+  transform: translateY(-4px) rotate(-1deg);
+  box-shadow: 0 26px 50px -16px rgba(0, 0, 0, 0.65);
+}
+
+.screen::before {
+  content: "";
+  position: absolute;
+  inset: -20px;
+  z-index: -1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(166, 138, 240, 0.16), transparent 70%);
+  filter: blur(6px);
+}
+
+.screenCode {
+  align-self: center;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--color-text-primary);
+  background: repeating-linear-gradient(
+    100deg,
+    rgba(255, 255, 255, 0.04) 0px,
+    rgba(255, 255, 255, 0.04) 2px,
+    transparent 2px,
+    transparent 5px
+  );
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  border: 1px dashed var(--color-border-strong);
+}
+
+.screenInputRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.screenInput {
+  flex: 1;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: var(--color-text-secondary);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 6px 10px;
+}
+
+.verifyBtn {
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #16122e;
+  background: var(--color-purple-soft);
+  animation: pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(166, 138, 240, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(166, 138, 240, 0);
+  }
+}
+
+.keyboardHint {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.62rem;
+  color: var(--color-text-muted);
+}
+
+.gem {
+  position: absolute;
+  color: var(--color-purple-soft);
+  animation: float 5s ease-in-out infinite;
+}
+
+.gemA {
+  top: -2px;
+  right: 6px;
+  animation-delay: 0.2s;
+}
+
+.gemB {
+  bottom: 4px;
+  right: -8px;
+  animation-delay: 1.3s;
+}
+
+.gemC {
+  bottom: -6px;
+  left: 20px;
+  animation-delay: 0.7s;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+@media (min-width: 641px) {
+  .banner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+  }
+
+  .content {
+    flex: 1;
+  }
+
+  .illustration {
+    flex: 0 0 auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  .screen {
+    width: 190px;
+  }
+}

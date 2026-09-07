@@ -1,0 +1,133 @@
+.page {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background: var(--color-bg);
+  padding: 52px 20px 72px;
+}
+
+.glowA,
+.glowB {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.glowA {
+  width: 420px;
+  height: 420px;
+  top: -160px;
+  left: -120px;
+  background: radial-gradient(circle, rgba(111, 147, 255, 0.16), transparent 70%);
+}
+
+.glowB {
+  width: 460px;
+  height: 460px;
+  bottom: -220px;
+  right: -140px;
+  background: radial-gradient(circle, rgba(240, 183, 74, 0.13), transparent 70%);
+}
+
+.pageHeader {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  animation: headerRise 620ms var(--ease-standard) both;
+}
+
+@keyframes headerRise {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.pageEyebrow {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--color-gold-soft);
+  background: rgba(240, 183, 74, 0.1);
+  border: 1px solid rgba(240, 183, 74, 0.24);
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+}
+
+.pageTitle {
+  font-size: clamp(1.8rem, 4.4vw, 2.6rem);
+  font-weight: 700;
+  line-height: 1.12;
+  color: var(--color-text-primary);
+  max-width: 20ch;
+}
+
+.pageTitleAccent {
+  background: linear-gradient(120deg, var(--color-gold-soft), var(--color-gold));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.pageSubtitle {
+  color: var(--color-text-secondary);
+  font-size: 1rem;
+  max-width: 58ch;
+}
+
+.stack {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+@media (min-width: 1024px) {
+  .page {
+    padding: 72px 44px 90px;
+  }
+
+  .stack {
+    gap: 26px;
+  }
+}
+
+@media (max-width: 640px) {
+  .page {
+    padding: 28px 12px 48px;
+  }
+
+  .pageHeader {
+    margin-bottom: 24px;
+    gap: 8px;
+  }
+
+  .pageTitle {
+    font-size: clamp(1.7rem, 8vw, 2.15rem);
+  }
+
+  .pageSubtitle {
+    font-size: 0.92rem;
+  }
+
+  .stack {
+    gap: 16px;
+  }
+}

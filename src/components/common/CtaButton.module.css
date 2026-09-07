@@ -1,0 +1,84 @@
+.cta {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: 13px 24px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  cursor: pointer;
+  transition: transform 260ms var(--ease-spring), box-shadow 260ms var(--ease-standard),
+    filter 220ms var(--ease-standard);
+  min-height: 44px;
+  color: #17182a;
+}
+
+.cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 20%, rgba(255, 255, 255, 0.5) 40%, transparent 60%);
+  transform: translateX(-120%);
+  transition: transform 650ms var(--ease-standard);
+}
+
+.cta:hover::before {
+  transform: translateX(120%);
+}
+
+.icon {
+  position: relative;
+  transition: transform 260ms var(--ease-spring);
+}
+
+.cta span {
+  position: relative;
+}
+
+.cta:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.07);
+}
+
+.cta:hover .icon {
+  transform: translateX(4px);
+}
+
+.cta:active {
+  transform: translateY(0) scale(0.98);
+  filter: brightness(0.97);
+}
+
+.cta:focus-visible {
+  outline: 2px solid var(--color-text-primary);
+  outline-offset: 3px;
+}
+
+.gold {
+  background: linear-gradient(180deg, var(--color-gold-soft), var(--color-gold));
+  box-shadow: var(--shadow-cta);
+}
+
+.blue {
+  background: linear-gradient(180deg, var(--color-blue-soft), var(--color-blue));
+  color: #12162e;
+  box-shadow: 0 12px 28px -10px rgba(111, 147, 255, 0.5);
+}
+
+.purple {
+  background: linear-gradient(180deg, var(--color-purple-soft), var(--color-purple));
+  color: #16122e;
+  box-shadow: 0 12px 28px -10px rgba(166, 138, 240, 0.5);
+}
+
+@media (max-width: 360px) {
+  .cta {
+    width: 100%;
+    justify-content: center;
+  }
+}

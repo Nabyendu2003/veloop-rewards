@@ -1,0 +1,247 @@
+.banner {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--color-gold-soft);
+  background: rgba(240, 183, 74, 0.12);
+  border: 1px solid rgba(240, 183, 74, 0.25);
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+}
+
+.heading {
+  font-size: clamp(1.55rem, 4.2vw, 2.15rem);
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.headingAccent {
+  background: linear-gradient(120deg, var(--color-gold-soft), var(--color-gold));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.description {
+  color: var(--color-text-secondary);
+  font-size: 0.94rem;
+  line-height: 1.55;
+  max-width: 36ch;
+}
+
+.taskList {
+  list-style: none;
+  margin: 4px 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.taskItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.8rem;
+}
+
+.taskDone {
+  color: var(--color-gold-soft);
+  flex-shrink: 0;
+}
+
+.taskPending {
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+}
+
+.taskLabel {
+  display: block;
+  color: var(--color-text-primary);
+  font-weight: 600;
+}
+
+.taskDesc {
+  display: block;
+  color: var(--color-text-muted);
+  font-size: 0.7rem;
+}
+
+/* Illustration */
+.illustration {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 150px;
+}
+
+.ring {
+  position: relative;
+  width: 130px;
+  height: 130px;
+  transition: transform 380ms var(--ease-spring);
+}
+
+.banner:hover .ring {
+  transform: scale(1.04);
+}
+
+.ring::before {
+  content: "";
+  position: absolute;
+  inset: -18px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(240, 183, 74, 0.2), transparent 70%);
+  filter: blur(6px);
+  z-index: -1;
+}
+
+.ringSvg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.ringTrack {
+  fill: none;
+  stroke: var(--color-border-strong);
+  stroke-width: 8;
+}
+
+.ringProgress {
+  fill: none;
+  stroke: url(#none);
+  stroke: var(--color-gold);
+  stroke-width: 8;
+  stroke-linecap: round;
+  stroke-dasharray: 327;
+  stroke-dashoffset: 327;
+  animation: fillRing 1.4s var(--ease-standard) 0.2s forwards;
+}
+
+@keyframes fillRing {
+  to {
+    stroke-dashoffset: 82;
+  }
+}
+
+.ringCenter {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+}
+
+.ringLabel {
+  font-size: 0.62rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.ringValue {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-gold-soft);
+}
+
+.vault {
+  position: absolute;
+  right: 6px;
+  bottom: 6px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-surface-raised);
+  border: 1px solid var(--color-border-strong);
+  color: var(--color-gold-soft);
+  transition: transform 340ms var(--ease-spring);
+}
+
+.banner:hover .vault {
+  transform: rotate(-8deg) scale(1.08);
+}
+
+.coin {
+  position: absolute;
+  color: var(--color-gold-soft);
+  animation: float 5s ease-in-out infinite;
+}
+
+.coinA {
+  top: -4px;
+  left: 6px;
+  animation-delay: 0.2s;
+}
+
+.coinB {
+  bottom: 10px;
+  left: -8px;
+  animation-delay: 1.4s;
+}
+
+.coinC {
+  top: 20px;
+  right: -10px;
+  animation-delay: 0.8s;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+@media (min-width: 641px) {
+  .banner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+  }
+
+  .content {
+    flex: 1;
+  }
+
+  .illustration {
+    flex: 0 0 auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  .ring {
+    width: 150px;
+    height: 150px;
+  }
+}

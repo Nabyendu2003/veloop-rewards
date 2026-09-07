@@ -1,0 +1,140 @@
+.shell {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: var(--radius-lg);
+  border: 1px solid transparent;
+  background:
+    linear-gradient(var(--color-surface), var(--color-surface)) padding-box,
+    linear-gradient(150deg, var(--border-a, rgba(255, 255, 255, 0.16)), rgba(255, 255, 255, 0.02) 40%, var(--border-b, rgba(255, 255, 255, 0.1)) 100%) border-box;
+  box-shadow: var(--shadow-card);
+  padding: 30px 26px;
+  min-height: 330px;
+  max-height: 520px;
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  animation: rise 700ms var(--ease-standard) both;
+  transition: box-shadow 320ms var(--ease-standard), transform 320ms var(--ease-standard);
+}
+
+.shell:hover {
+  transform: translateY(-5px) scale(1.004);
+  box-shadow: var(--shadow-card-hover), 0 0 0 1px var(--glow, rgba(240, 183, 74, 0.18));
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(22px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Faint dot-grid texture, fades toward the illustration side */
+.grid {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.5;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.09) 1px, transparent 1px);
+  background-size: 22px 22px;
+  -webkit-mask-image: radial-gradient(560px 320px at 78% 30%, black, transparent 70%);
+  mask-image: radial-gradient(560px 320px at 78% 30%, black, transparent 70%);
+}
+
+/* Diagonal light sweep on hover */
+.sheen {
+  position: absolute;
+  inset: -40%;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(115deg, transparent 40%, rgba(255, 255, 255, 0.06) 48%, transparent 56%);
+  transform: translateX(-60%);
+  transition: transform 900ms var(--ease-standard);
+}
+
+.shell:hover .sheen {
+  transform: translateX(20%);
+}
+
+@media (max-width: 640px) {
+  .shell {
+    min-height: 0;
+    max-height: none;
+    align-items: stretch;
+    padding: 24px 18px 26px;
+  }
+}
+
+/* Accent-tinted radial wash in the corner */
+.shell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.6;
+  z-index: 0;
+  transition: opacity 320ms var(--ease-standard);
+}
+
+.shell:hover::before {
+  opacity: 0.85;
+}
+
+.gold {
+  --border-a: rgba(240, 183, 74, 0.28);
+  --border-b: rgba(255, 255, 255, 0.08);
+  --glow: rgba(240, 183, 74, 0.16);
+}
+
+.gold::before {
+  background: radial-gradient(600px 280px at 84% 8%, rgba(240, 183, 74, 0.16), transparent 65%);
+}
+
+.blue {
+  --border-a: rgba(111, 147, 255, 0.3);
+  --border-b: rgba(255, 255, 255, 0.08);
+  --glow: rgba(111, 147, 255, 0.16);
+}
+
+.blue::before {
+  background: radial-gradient(600px 280px at 84% 12%, rgba(111, 147, 255, 0.18), transparent 65%);
+}
+
+.purple {
+  --border-a: rgba(166, 138, 240, 0.3);
+  --border-b: rgba(255, 255, 255, 0.08);
+  --glow: rgba(166, 138, 240, 0.16);
+}
+
+.purple::before {
+  background: radial-gradient(600px 280px at 84% 10%, rgba(166, 138, 240, 0.18), transparent 65%);
+}
+
+@media (min-width: 641px) and (max-width: 1023px) {
+  .shell {
+    min-height: 380px;
+    max-height: 540px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .shell {
+    min-height: 410px;
+    max-height: 450px;
+    padding: 36px 48px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shell {
+    opacity: 1;
+    animation: none;
+  }
+}
