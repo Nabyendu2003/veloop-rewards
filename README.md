@@ -119,11 +119,11 @@ submission — e.g. `docs/refer-earn.png`, `docs/swap-center.png`, etc._
 
 ## Live Demo
 
-`https://your-project.vercel.app` _(update after deployment)_
+`https://veloop-rewards-one.vercel.app/` 
 
 ## GitHub Repository
 
-`https://github.com/yourusername/veloop-rewards` _(update with your repo URL)_
+`https://github.com/Nabyendu2003/veloop-rewards`
 
 ## Author
 
